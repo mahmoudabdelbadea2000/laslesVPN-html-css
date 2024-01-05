@@ -1,0 +1,93 @@
+.prices {
+    background: linear-gradient(180deg, #F8F8F8 -45.04%, rgba(248,  248, 248, 0.00) 88.56%);
+    margin-top: calc(var(--space) * 6);
+    margin-bottom: calc(var(--space) * 6);
+    
+    .plans {
+        margin-top: calc(var(--space) * 6);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        -moz-column-gap: calc(var(--space) * 4);
+            column-gap: calc(var(--space) * 4);
+
+        @include tablet {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        @include mobile {
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        &__top {
+            text-align: center;
+            h5 {
+                margin-top: var(--space);
+                color: var(--color-text-dark-blue);
+                font-weight: 500;
+                font-size: 19.2px;
+            }
+        }
+        &__item {
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            justify-content: center;
+            cursor: pointer;
+            background-color: var(--color-white);
+            border: 0.1rem solid #DDDDDD;
+            border-radius: 10px;
+            padding-top: calc(var(--space) * 6);
+            padding-bottom: calc(var(--space) * 4);
+            transition: var(--transition-timing);
+            &:hover{
+                border-color: var(--color-main-red);
+            }
+        }
+        &__features {
+            margin-top: calc(var(--space) * 3);
+            margin-bottom: calc(var(--space) * 6);
+            display: flex;
+            flex-direction: column;
+            gap: calc(var(--space) * 1.5);
+
+            &-item span:first-child {
+                color: var(--color-green);
+                margin-right: var(--space);
+            }
+            &-item span:last-child {
+                color: var(--color-text-black);
+                font-size: 14.4px;
+            }
+        }
+        &__bottom {
+            text-align: center;
+            span {
+                display: block;
+                margin-bottom: calc(var(--space) * 1.5);
+                font-weight: 500;
+                font-size: 25.6px;
+
+                span {
+                    font-weight: 400;
+                    display: inline-block;
+                }
+            }
+
+            button {
+                    color: var(--color-main-red);
+                    border: 2px solid var(--color-main-red);
+                    font-weight: 700;
+                    text-transform: capitalize;
+                    border-radius: 50px;
+                    padding: var(--space) calc(var(--space) * 5);
+                    transition: var(--transition-timing);
+                    &:hover{
+                        color: var(--color-white);
+                        background-color: var(--color-main-red);
+                        box-shadow: 0px 15px 20px 0px rgba(245, 56, 56, 0.35);
+                    }
+                }
+        }
+    }
+}

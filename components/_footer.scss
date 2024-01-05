@@ -1,0 +1,123 @@
+@import "mixins";
+
+.footer {
+    background-color: #f8f8f8;
+    padding-top: 18rem;
+    padding-bottom: 4rem;
+
+    .container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        .help {
+            @include flex-center-vert;
+            justify-content: space-between;
+            position: absolute;
+            top: -280px;
+            padding: calc(var(--space) * 4);
+            background-color: var(--color-white);
+            box-shadow: rgb(219, 219, 219) 0px 28px 24px 6px;
+            border-radius: 10px;
+            margin: 0 auto;
+            width: 95%;
+
+            @include mobile {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .subscribe__content {
+                h3 {
+                    color: var(--color-text-dark-blue);
+                    font-weight: 500;
+                    font-size: 35.2px;
+
+                    @include tablet {
+                        font-size: 25px;
+                    }
+                }
+
+                p {
+                    color: var(--color-text-black);
+                    margin-top: var(--space);
+                }
+            }
+
+            button {
+                color: var(--color-white);
+                background-color: var(--color-main-red);
+                font-weight: 700;
+                text-transform: capitalize;
+                border-radius: 10px;
+                padding: calc(var(--space) * 2) calc(var(--space) * 8);
+                box-shadow: 0px 15px 20px 0px rgba(245, 56, 56, 0.35);
+            }
+        }
+    }
+
+    &__content {
+        display: grid;
+        grid-template-columns: 1fr auto auto auto;
+        -moz-column-gap: 4rem;
+        column-gap: 4rem;
+
+        @include tablet {
+            grid-template-columns: auto auto auto;
+        }
+
+        @include tablet {
+            grid-template-columns: auto auto;
+        }
+
+        .sideFooter {
+            p {
+                margin-top: var(--space);
+                margin-bottom: calc(var(--space) * 3);
+                color: var(--color-text-black);
+                max-width: 340px;
+
+                span {
+                    font-weight: 500;
+                }
+            }
+
+            span {
+                color: #afb5c0;
+            }
+
+            .social-icons {
+                margin-bottom: 2rem;
+                @include flex-center-vert;
+                gap: 2rem;
+
+                span {
+                    @include flex-center;
+                    width: 35px;
+                    height: 35px;
+                    cursor: pointer;
+                    border-radius: 50%;
+                    background-color: var(--color-white);
+                    box-shadow: 0 10px 30px -5px;
+                }
+            }
+        }
+
+        ul {
+            li {
+                color: var(--color-text-black);
+                margin-bottom: 1.5rem;
+
+                &:first-child {
+                    font-size: 19.2px;
+                    font-weight: 500;
+                    color: var(--color-text-dark-blue);
+                    margin-bottom: 2rem;
+                }
+            }
+        }
+    }
+}

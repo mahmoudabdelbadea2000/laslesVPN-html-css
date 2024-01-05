@@ -1,0 +1,25 @@
+$mobile: 600px;
+$tablet: 775px;
+
+@mixin mobile {
+    @media (max-width: $mobile) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (max-width: $tablet) {
+        @content;
+    }
+}
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-center-vert {
+    display: flex;
+    align-items: center;
+}

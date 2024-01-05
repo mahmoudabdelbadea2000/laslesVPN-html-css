@@ -1,0 +1,98 @@
+@import "./mixins";
+
+header {
+    padding: calc(var(--space) * 4) 0;
+
+    .container {
+        @include flex-center-vert;
+        justify-content: space-between;
+        text-transform: capitalize;
+        gap: 2rem;
+        position: relative;
+    }
+
+    .burger-manu { 
+            height: 20px;
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            -webkit-margin-start: 1rem;
+                margin-inline-start: 1rem;
+            cursor: pointer;
+
+        @include tablet {
+            display: flex;
+        }
+    }
+    .burger__manu-checkbox {
+        display: none;
+        
+        &:checked~nav {
+            top: 150%;
+        }
+    }
+
+        span {
+            width: 30px;
+            height: 2px;
+            background-color: var(--color-main-red);
+            display: block;
+        }
+
+    nav{
+        @include tablet {
+            position: absolute;
+            // background-color: #000;
+            top: -100%;
+            width: 100%;
+            border-top: 1px solid var(--color-text-dark-blue);
+            padding: 2rem 0;
+            transition: var(--transition-timing);
+            background-color: var(--color-main-red)
+        }
+        .links {
+            @include flex-center;
+            gap: 2rem;
+            
+            &__item {
+                color: var(--color-text-black);
+                transition: var(--transition-timing);
+            }
+
+            &__item:hover {
+                color: var(--color-text-dark-blue);
+            }
+        }
+    }
+
+    .register {
+        a {
+            color: var(--color-text-dark-blue);
+            font-weight: 500;
+
+            @include tablet {
+                display: none;
+            }
+        }
+
+        button {
+            color: var(--color-main-red);
+            padding: var(--space) 3rem;
+            border-radius: 25px;
+            border: 1px solid var(--color-main-red);
+            margin-left: var(--space);
+            font-weight: bold;
+            transition: var(--transition-timing);
+            text-transform: capitalize;
+
+            @include mobile {
+                font-size: 9px;
+            }
+
+            &:hover {
+                background-color: var(--color-main-red);
+                color: var(--color-white);
+            }
+        }
+    }
+}
