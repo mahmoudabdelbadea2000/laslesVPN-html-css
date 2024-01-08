@@ -1,22 +1,30 @@
 @import "mixins";
 
 .networks {
-        background: linear-gradient(180deg, #F8F8F8 -45.04%, rgba(248, 248, 248, 0.00) 88.56%);
-        
-    &__image {
-        margin-top: calc(var(--space) * 6);
-        width: 100%;
-    }
+  background: linear-gradient(
+    180deg,
+    #f8f8f8 -45.04%,
+    rgba(248, 248, 248, 0) 88.56%
+  );
+  margin-bottom: calc(var(--defalut-spacing) * 3);
 
-    &__brands {
-        @include flex-center;
-        flex-wrap: wrap;
-        gap: calc(var(--space) * 2);
-        padding-top: calc(var(--space) * 6);
-        padding-bottom: calc(var(--space) * 6);
+  &__image {
+    width: 100%;
+  }
 
-        img {
-            width: 150px;
-        }
+  &__brands {
+    @include flex-center;
+    flex-wrap: wrap;
+    gap: calc(var(--defalut-spacing) / 2);
+    padding-top: calc(var(--defalut-spacing) / 2);
+    padding-bottom: calc(var(--defalut-spacing) / 2);
+
+    img {
+      max-width: 150px;
+
+      @include mobile {
+        max-width: 100px;
+      }
     }
+  }
 }

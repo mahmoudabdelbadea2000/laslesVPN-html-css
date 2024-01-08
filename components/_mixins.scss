@@ -1,25 +1,31 @@
 $mobile: 600px;
-$tablet: 775px;
+$tablet: 800px;
 
 @mixin mobile {
-    @media (max-width: $mobile) {
-        @content;
-    }
+  @media (max-width: $mobile) {
+    @content;
+  }
 }
 
 @mixin tablet {
-    @media (max-width: $tablet) {
-        @content;
-    }
+  @media (max-width: $tablet) {
+    @content;
+  }
 }
 
 @mixin flex-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @mixin flex-center-vert {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex-center-vert-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

@@ -1,98 +1,129 @@
-@import "./mixins";
+@import "mixins";
 
-header {
-    padding: calc(var(--space) * 4) 0;
+.header {
+  padding: var(--defalut-spacing) 0;
 
-    .container {
-        @include flex-center-vert;
-        justify-content: space-between;
-        text-transform: capitalize;
-        gap: 2rem;
-        position: relative;
-    }
+  @include tablet {
+    padding: 1rem 0;
+  }
 
-    .burger-manu { 
-            height: 20px;
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            -webkit-margin-start: 1rem;
-                margin-inline-start: 1rem;
-            cursor: pointer;
+  &:has(.burger-menu-checkbox:checked) .burger-menu label span:first-child {
+    transform: rotate(45deg);
+  }
+  &:has(.burger-menu-checkbox:checked) .burger-menu label span:nth-child(2) {
+    display: none;
+  }
+  &:has(.burger-menu-checkbox:checked) .burger-menu label span:last-child {
+    transform: rotate(-45deg) translate(7px, -5px);
+  }
+
+  &:has(.burger-menu-checkbox:checked) nav {
+    top: 150%;
+  }
+
+  &__body {
+    @include flex-center-vert-between;
+    text-transform: capitalize;
+    position: relative;
+
+    nav {
+      transition: var(--transition-timing);
+      background-color: var(--color-white);
+      @include tablet {
+        position: absolute;
+        top: -400%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-top: 1px solid var(--color-text-black);
+        padding: 1rem 0.5rem;
+        width: 100%;
+        box-shadow: 0px 20px 20px -9px var(--color-text-black);
+        border-radius: 5px;
+      }
+
+      .links {
+        @include flex-center-vert-between;
+        gap: var(--defalut-spacing);
 
         @include tablet {
-            display: flex;
-        }
-    }
-    .burger__manu-checkbox {
-        display: none;
-        
-        &:checked~nav {
-            top: 150%;
-        }
-    }
-
-        span {
-            width: 30px;
-            height: 2px;
-            background-color: var(--color-main-red);
-            display: block;
+          gap: 0.3rem;
+          flex-wrap: wrap;
+          justify-content: space-evenly;
         }
 
-    nav{
-        @include tablet {
-            position: absolute;
-            // background-color: #000;
-            top: -100%;
-            width: 100%;
-            border-top: 1px solid var(--color-text-dark-blue);
-            padding: 2rem 0;
-            transition: var(--transition-timing);
-            background-color: var(--color-main-red)
+        &__item {
+          color: var(--color-text-black);
+          transition: var(--transition-timing);
         }
-        .links {
-            @include flex-center;
-            gap: 2rem;
-            
-            &__item {
-                color: var(--color-text-black);
-                transition: var(--transition-timing);
-            }
 
-            &__item:hover {
-                color: var(--color-text-dark-blue);
-            }
+        &__item:hover {
+          color: var(--color-text-dark-blue);
         }
+      }
     }
 
-    .register {
+    &-sign {
+      @include flex-center-vert;
+      gap: 1rem;
+
+      .register {
         a {
-            color: var(--color-text-dark-blue);
-            font-weight: 500;
+          color: var(--color-text-dark-blue);
+          font-weight: 500;
+          -webkit-margin-end: 1rem;
+          margin-inline-end: 1rem;
 
-            @include tablet {
-                display: none;
-            }
+          @media (max-width: 835px) {
+            display: none;
+          }
         }
 
         button {
-            color: var(--color-main-red);
-            padding: var(--space) 3rem;
-            border-radius: 25px;
-            border: 1px solid var(--color-main-red);
-            margin-left: var(--space);
-            font-weight: bold;
-            transition: var(--transition-timing);
-            text-transform: capitalize;
+          color: var(--color-main-red);
+          padding: 0.8rem 2.5rem;
+          border-radius: 1.5625rem;
+          border: 1px solid var(--color-main-red);
+          font-weight: bold;
+          transition: var(--transition-timing);
+          text-transform: capitalize;
 
-            @include mobile {
-                font-size: 9px;
-            }
+          @include mobile {
+            padding: 0.5rem 1rem;
+          }
 
-            &:hover {
-                background-color: var(--color-main-red);
-                color: var(--color-white);
-            }
+          &:hover {
+            background-color: var(--color-main-red);
+            color: var(--color-white);
+          }
         }
+      }
+
+      .burger-menu {
+        display: none;
+
+        label {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          cursor: pointer;
+        }
+
+        &__bar {
+          display: inline-block;
+          width: 2rem;
+          height: 0.1rem;
+          background-color: var(--color-main-red);
+          transition: var(--transition-timing);
+        }
+
+        &-checkbox {
+          display: none;
+        }
+
+        @include tablet {
+          display: block;
+        }
+      }
     }
+  }
 }

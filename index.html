@@ -14,37 +14,43 @@
       href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style/style.css" />
+    <link rel="stylesheet" href="styles/style.css" />
     <title>LaslesVPN</title>
   </head>
   <body>
-    <header>
+    <header class="header">
       <div class="container">
-        <div class="logo">
-          <img src="images/Logo.svg" alt="laslesVPN logo" />
-        </div>
-        <label for="menu" class="burger-manu">
-          <span class="burger-menu__bar"></span>
-          <span class="burger-menu__bar"></span>
-          <span class="burger-menu__bar"></span>
-        </label>
-        <input id="menu" type="checkbox" class="burger__manu-checkbox" />
-        <nav>
-          <ul class="links">
-            <li class="links__item"><a href="#about">about</a></li>
-            <li class="links__item"><a href="#features">features</a></li>
-            <li class="links__item"><a href="#pricing">pricing</a></li>
-            <li class="links__item">
-              <a href="#testimonials">testimonials</a>
-            </li>
-            <li class="links__item">
-              <a href="#help">help</a>
-            </li>
-          </ul>
-        </nav>
-        <div class="register">
-          <a href="#">sign in</a>
-          <button type="button">sign up</button>
+        <div class="header__body">
+          <div class="header__body-logo">
+            <img src="images/Logo.svg" alt="laslesVPN logo" />
+          </div>
+          <nav>
+            <ul class="links">
+              <li class="links__item"><a href="#about">about</a></li>
+              <li class="links__item"><a href="#features">features</a></li>
+              <li class="links__item"><a href="#pricing">pricing</a></li>
+              <li class="links__item">
+                <a href="#testimonials">testimonials</a>
+              </li>
+              <li class="links__item">
+                <a href="#help">help</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="header__body-sign">
+            <div class="register">
+              <a href="#">sign in</a>
+              <button type="button">sign up</button>
+            </div>
+            <div class="burger-menu">
+              <label for="menu">
+                <span class="burger-menu__bar"></span>
+                <span class="burger-menu__bar"></span>
+                <span class="burger-menu__bar"></span>
+              </label>
+              <input id="menu" type="checkbox" class="burger-menu-checkbox" />
+            </div>
+          </div>
         </div>
       </div>
     </header>
@@ -52,48 +58,54 @@
     <section class="landing">
       <div class="container">
         <div class="content">
-          <h1 class="content__title">
-            Want anything to be easy with <span>LaslesVPN</span>.
-          </h1>
-          <p class="content__description">
-            Provide a network for all your needs with ease and fun using
-            <span>LaslesVPN</span> discover interesting features from us.
-          </p>
-          <button class="content__call" type="button">get started</button>
-        </div>
-        <div class="landing__image">
-          <img src="images/landing-image.png" alt="landing page image" />
+          <div class="content__text">
+            <h1 class="content__text-title">
+              Want anything to be easy with <span>LaslesVPN</span>.
+            </h1>
+            <p class="content__text-description">
+              Provide a network for all your needs with ease and fun using
+              <span>LaslesVPN</span> discover interesting features from us.
+            </p>
+            <button class="content__text-call" type="button">
+              get started
+            </button>
+          </div>
+          <div class="content__image">
+            <img src="images/landing-image.png" alt="landing page image" />
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="states">
+    <section class="status">
       <div class="container">
-        <div class="states__content">
-          <div class="content__image">
-            <img src="images/heroicons_sm-user.png" alt="user image" />
+        <div class="status__content">
+          <div class="status__content-item">
+            <div class="content-image">
+              <img src="images/heroicons_sm-user.png" alt="user image" />
+            </div>
+            <div class="content-info">
+              <span>90+</span>
+              <span>Users</span>
+            </div>
           </div>
-          <div>
-            <span>90+</span>
-            <span>Users</span>
+          <div class="status__content-item">
+            <div class="content-image">
+              <img src="images/gridicons_location.png" alt="user image" />
+            </div>
+            <div class="content-info">
+              <span>30+</span>
+              <span>Locations</span>
+            </div>
           </div>
-        </div>
-        <div class="states__content">
-          <div class="content__image">
-            <img src="images/gridicons_location.png" alt="user image" />
-          </div>
-          <div>
-            <span>30+</span>
-            <span>Locations</span>
-          </div>
-        </div>
-        <div class="states__content">
-          <div class="content__image">
-            <img src="images/bx_bxs-server.png" alt="user image" />
-          </div>
-          <div>
-            <span>50+</span>
-            <span>Servers</span>
+          <div class="status__content-item">
+            <div class="content-image">
+              <img src="images/bx_bxs-server.png" alt="user image" />
+            </div>
+            <div class="content-info">
+              <span>50+</span>
+              <span>Servers</span>
+            </div>
           </div>
         </div>
       </div>
@@ -101,34 +113,36 @@
 
     <section class="features" id="features">
       <div class="container">
-        <div class="features__image">
-          <img src="images/feature-image.png" alt="feature-image" />
-        </div>
-        <div class="features__text">
-          <h3>
-            We Provide Many <br />
-            Features You Can Use
-          </h3>
-          <p>
-            You can explore the features that we provide with fun and have their
-            own functions each feature.
-          </p>
-          <div class="features__list">
-            <div class="features__list-item">
-              <span>&#10003;</span>
-              <span>Powerfull online protection.</span>
-            </div>
-            <div class="features__list-item">
-              <span>&#10003;</span>
-              <span>Internet without borders.</span>
-            </div>
-            <div class="features__list-item">
-              <span>&#10003;</span>
-              <span>Supercharged VPN</span>
-            </div>
-            <div class="features__list-item">
-              <span>&#10003;</span>
-              <span>No specific time limits.</span>
+        <div class="features__content">
+          <div class="features__content-image">
+            <img src="images/feature-image.png" alt="feature-image" />
+          </div>
+          <div class="features__content-text">
+            <h3>
+              We Provide Many <br />
+              Features You Can Use
+            </h3>
+            <p>
+              You can explore the features that we provide with fun and have
+              their own functions each feature.
+            </p>
+            <div class="features__list">
+              <div class="features__list-item">
+                <span>&#10003;</span>
+                <span>Powerfull online protection.</span>
+              </div>
+              <div class="features__list-item">
+                <span>&#10003;</span>
+                <span>Internet without borders.</span>
+              </div>
+              <div class="features__list-item">
+                <span>&#10003;</span>
+                <span>Supercharged VPN</span>
+              </div>
+              <div class="features__list-item">
+                <span>&#10003;</span>
+                <span>No specific time limits.</span>
+              </div>
             </div>
           </div>
         </div>
@@ -137,7 +151,7 @@
 
     <section class="prices" id="pricing">
       <div class="container">
-        <div class="section-header">
+        <div class="custom-header">
           <h3>Choose Your Plan</h3>
           <p>
             Let's choose the package that is best for you and explore it happily
@@ -247,7 +261,7 @@
 
     <section class="networks">
       <div class="container">
-        <div class="section-header">
+        <div class="custom-header">
           <h3>
             Huge Global Network <br />
             of Fast VPN
@@ -274,7 +288,7 @@
 
     <section class="testimonials" id="testimonials">
       <div class="container">
-        <div class="section-header">
+        <div class="custom-header">
           <h3>
             Trusted by Thousands of <br />
             Happy Customer

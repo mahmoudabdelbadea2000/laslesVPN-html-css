@@ -1,54 +1,71 @@
 @import "./mixins";
 
 .landing {
-    margin-top: calc(var(--space) * 6);
+  padding: var(--defalut-spacing) 0 0;
 
-    .container {
-        @include flex-center;
-        gap: var(--space);
+  .content {
+    @include flex-center-vert-between;
+    gap: var(--defalut-spacing);
 
-        @include tablet {
-            flex-direction: column;
-        }
-
-        .content {
-            flex: 1;
-
-            &__title {
-                font-weight: 500;
-                font-size: 50px;
-
-                span {
-                    font-weight: bold;
-                }
-            }
-
-            &__description {
-                color: var(--color-text-black);
-                margin-top: calc(var(--space) * 3);
-                margin-bottom: calc(var(--space) * 4);
-
-                span {
-                    font-weight: 500;
-                }
-            }
-
-            &__call {
-                color: var(--color-white);
-                background-color: var(--color-main-red);
-                font-weight: 700;
-                text-transform: capitalize;
-                border-radius: 10px;
-                padding: calc(var(--space) * 2) calc(var(--space) * 8);
-                box-shadow: 0px 15px 20px 0px rgba(245, 56, 56, 0.35);
-            }
-        }
+    @include tablet {
+      flex-direction: column;
+      gap: calc(var(--defalut-spacing) / 2);
     }
+
+    &__text {
+      flex: 1;
+      &-title {
+        font-weight: 500;
+        font-size: 4rem;
+
+        @media (min-width: 769px) and (max-width: 1377px) {
+          font-size: 3rem;
+        }
+        @include mobile {
+          font-size: 2.3rem;
+        }
+        span {
+          font-weight: 700;
+        }
+      }
+
+      &-description {
+        color: var(--color-text-black);
+        margin-top: var(--defalut-spacing);
+        margin-bottom: calc(var(--defalut-spacing) * 1.5);
+        max-width: 34.6875rem;
+
+        @include mobile {
+          margin-top: calc(var(--defalut-spacing) / 2);
+          margin-bottom: calc(var(--defalut-spacing) * 0.75);
+        }
+
+        span {
+          font-weight: 500;
+        }
+      }
+
+      &-call {
+        color: var(--color-white);
+        background-color: var(--color-main-red);
+        font-weight: 700;
+        text-transform: capitalize;
+        border-radius: 10px;
+        padding: 1.5rem calc(var(--defalut-spacing) * 2.5);
+        box-shadow: 0px 15px 20px 0px rgba(245, 56, 56, 0.35);
+
+        @include mobile {
+          padding: 0.75rem calc(var(--defalut-spacing) * 1.5);
+        }
+      }
+    }
+
     &__image {
-        flex: 1;
+      flex: 1;
 
-        img {
-            max-width: 100%;
-        }
+      img {
+        max-width: 100%;
+      }
     }
+  }
 }

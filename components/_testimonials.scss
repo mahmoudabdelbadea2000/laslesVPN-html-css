@@ -1,131 +1,151 @@
 @import "mixins";
 
 .testimonials {
-    padding-top: calc(var(--space) * 7);
-    padding-bottom: calc(var(--space) * 14);
-    background: linear-gradient(180deg,#F8F8F8 -45.04%, rgba(248, 248, 248, 0.00) 88.56%);
+  background: linear-gradient(
+    180deg,
+    #f8f8f8 -45.04%,
+    rgba(248, 248, 248, 0) 88.56%
+  );
+  margin-bottom: calc(var(--defalut-spacing) * 5);
 
-    &__cards {
+  &__cards {
+    @include flex-center;
+    gap: var(--defalut-spacing);
+    overflow: auto;
+    padding-bottom: 1rem;
+
+    &::-webkit-scrollbar {
+      height: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: var(--color-white);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--color-main-red);
+    }
+
+    .testimonial__card {
+      height: 300px;
+      min-width: 500px;
+      border: 2px solid #ddd;
+      padding: 18px;
+      border-radius: 10px;
+      background-color: transparent;
+      transition: var(--transition-timing);
+
+      &:hover {
+        border-color: var(--color-main-red);
+        background-color: var(--color-white);
+      }
+
+      &-top {
+        @include flex-center-vert-between;
+        img {
+          width: 2.8125rem;
+          height: 2.8125rem;
+          border-radius: 50%;
+        }
+
+        .clientInfo {
+          @include flex-center-vert;
+          gap: calc(var(--defalut-spacing) / 2);
+
+          h4 {
+            color: var(--color-text-dark-blue);
+            font-size: 1.2rem;
+            font-weight: 500;
+            line-height: 0.8;
+          }
+          span {
+            color: var(--color-text-black);
+            font-size: 0.8rem;
+          }
+        }
+
+        .rating {
+          @include flex-center-vert-between;
+          gap: 0.5rem;
+
+          img {
+            width: 20px;
+          }
+        }
+      }
+      &-body {
+        line-height: 1.7;
+        letter-spacing: 1.5px;
+        margin-top: var(--defalut-spacing);
+        color: var(--color-text-dark-blue);
+      }
+    }
+  }
+
+  &__navegation {
+    @include flex-center-vert-between;
+    margin-top: calc(var(--defalut-spacing) * 1.5);
+
+    @include mobile {
+      margin-top: var(--defalut-spacing);
+    }
+
+    .bullets {
+      span {
+        width: 0.9375rem;
+        height: 0.9375rem;
+        border-radius: 50%;
+        background-color: #dde0e4;
+        display: inline-block;
+        cursor: pointer;
+        -webkit-margin-end: var(--defalut-spacing);
+        margin-inline-end: var(--defalut-spacing);
+
+        @include mobile {
+          width: 0.5rem;
+          height: 0.5rem;
+          -webkit-margin-end: 0.5rem;
+        }
+
+        &:first-of-type {
+          width: 3.125rem;
+          border-radius: 0.625rem;
+          background-color: var(--color-main-red);
+          @include mobile {
+            width: 2rem;
+            height: 0.5rem;
+          }
+        }
+      }
+    }
+
+    .arrow {
+      display: flex;
+      gap: 1rem;
+      span {
         @include flex-center;
-        gap: calc(var(--space) * 4);
-        overflow: auto;
-        padding-bottom: 16px;
+        color: var(--color-main-red);
+        border: 2px solid var(--color-main-red);
+        background-color: var(--color-white);
+        width: 3.75rem;
+        height: 3.75rem;
+        border-radius: 50%;
+        font-size: 1.875rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: var(--transition-timing);
 
-        &::-webkit-scrollbar {
-            height: 10px;
+        @include mobile {
+          font-size: 1.2rem;
+          width: var(--defalut-spacing);
+          height: var(--defalut-spacing);
         }
-    
-        &::-webkit-scrollbar-track {
-            background: var(--color-white);
+
+        &:hover {
+          color: var(--color-white);
+          background-color: var(--color-main-red);
         }
-
-        &::-webkit-scrollbar-thumb {
-            background: var(--color-main-red);
-        }
-
-        .testimonial__card {
-            min-height: 180px;
-            min-width: 400px;
-            border: 2px solid #ddd;
-            padding: 18px;
-            border-radius: 10px;
-            background-color: transparent;
-            transition: var(--transition-timing);
-
-            &:hover {
-                border-color: var(--color-main-red);
-                background-color: var(--color-white);
-            }
-
-            &-top{
-                @include flex-center-vert;
-                justify-content: space-between;
-                img {
-                    width: 45px;
-                    height: 45px;
-                    border-radius: 50%;
-                }
-
-                .clientInfo {
-                    @include flex-center-vert;
-                    gap: var(--space);
-
-                    h4 {
-                        color: var(--color-text-dark-blue);
-                        font-size: 19.2px;
-                        font-weight: 500;
-                        line-height: 0.8;
-                    }
-                    span {
-                        color: var(--color-text-black);
-                        font-size: 12.8px;
-                    }
-                }
-
-                .rating  {
-                    @include flex-center-vert;
-                    justify-content: space-between;
-                    gap: 0.5rem;
-
-                    img {
-                        width: 20px;
-                    }
-                }
-            }
-            &-body {
-                line-height: 1.7;
-                letter-spacing: 1.5px;
-                margin-top: calc(var(--space) * 2);
-                color: var(--color-text-dark-blue);
-            }
-        }
+      }
     }
-    
-    &__navegation {
-        @include flex-center-vert;
-        justify-content: space-between;
-        margin-top: 6rem;
-
-        .bullets {
-            span {
-                width: 15px;
-                height: 15px;
-                border-radius: 50%;
-                background-color: #DDE0E4;
-                display: inline-block;
-                cursor: pointer;
-                -webkit-margin-end: var(--space);
-                    margin-inline-end: var(--space);
-
-                &:first-of-type {
-                    width: 50px;
-                    border-radius: 10px;
-                    background-color: var(--color-main-red);
-                }
-            }
-        }
-
-        .arrow {
-            display: flex;
-            gap: 1rem;
-            span {
-                @include flex-center;
-                color: var(--color-main-red);
-                border: 2px solid var(--color-main-red);
-                background-color: var(--color-white);
-                width: 60px;
-                height: 60px;
-                border-radius: 50%;
-                font-size: 30px;
-                font-weight: 700;
-                cursor: pointer;
-                transition: var(--transition-timing);
-
-                &:hover {
-                    color: var(--color-white);
-                    background-color: var(--color-main-red);
-                }
-            }
-        }
-    }
+  }
 }
